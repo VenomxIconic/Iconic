@@ -14,6 +14,9 @@ from config import BOT_TOKEN, ADMIN_IDS, OWNER_USERNAME
 USER_FILE = "users.json"
 KEY_FILE = "keys.json"
 
+BOT_TOKEN = 7334142227:AAHGpsDcaeq12ss2th666ruYIMvLCflcCGw
+ADMIN_IDS = 1197720408
+OWNER_USERNAME = EXR_ICONIC
 flooding_process = None
 flooding_command = None
 
